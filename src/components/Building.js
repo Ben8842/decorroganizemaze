@@ -38,10 +38,6 @@ class Building extends Component {
     for (i = 0; i < pathO.length; i++) {
       if (stepback === pathO.length && x === icon[0] && y === icon[1]) {
         return <button className="icon" codex={x} codey={y}></button>;
-      } else if (x === 0 && y === 0) {
-        return <button className="green" codex={x} codey={y}></button>;
-      } else if (x === viewSize - 2 && y === viewSize - 2) {
-        return <button className="green" codex={x} codey={y}></button>;
       } else if (
         x === pathO[pathO.length - 1][0] &&
         y === pathO[pathO.length - 1][1] &&
@@ -542,28 +538,6 @@ class Building extends Component {
     const elementS = [];
     const elementZ = [];
     const viewSize = this.props.sizeValue;
-
-    const aray = [];
-    const bray = [];
-    var a;
-    var b;
-    if (controltime === true) {
-      for (a = 0; a < 3; a++) {
-        for (b = 0; b < 3; b++) {
-          aray.push(<span>{this.renderControl(b, a)}</span>);
-        }
-        bray.push(
-          <div className="newLineC">
-            {aray.map((value, index) => {
-              return <span key={index}>{value}</span>;
-            })}
-          </div>
-        );
-        for (b = 0; b < 9; b++) {
-          aray.pop();
-        }
-      }
-    }
 
     var x;
     var y;

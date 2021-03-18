@@ -59,19 +59,19 @@ class App extends Component {
       </div>
     );
     const basic = (
-      <div>
-        Hello World <p>Yes</p>
+      <div id="nameT">
+        Hello World <p id="nameT">Yes</p>
       </div>
     );
     const projectContainer = (
-      <div>
+      <div id="nameT">
         <Bar sizeValue="20" width="34" height="5" />
         More things here
         <Building sizeValue="20" />
       </div>
     );
     const aboutContainer = (
-      <div>
+      <div id="nameT">
         <Bar sizeValue="20" width="34" height="5" />
         Super great things here
       </div>
