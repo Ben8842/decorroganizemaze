@@ -537,54 +537,6 @@ class Building extends Component {
     this.forceUpdate();
   }
 
-  renderControl(x, y) {
-    if (
-      (x === 0 && y === 0) |
-      (x === 2 && y === 0) |
-      (x === 0 && y === 2) |
-      (x === 2 && y === 2)
-    ) {
-      return <button className="bgrey" codex={x} codey={y}></button>;
-    } else if (x === 1 && y === 0) {
-      return (
-        <button
-          className="bdirection"
-          codex={x}
-          codey={y}
-          onClick={() => this.upmove()}
-        ></button>
-      );
-    } else if (x === 0 && y === 1) {
-      return (
-        <button
-          className="bdirection"
-          codex={x}
-          codey={y}
-          onClick={() => this.leftmove()}
-        ></button>
-      );
-    } else if (x === 2 && y === 1) {
-      return (
-        <button
-          className="bdirection"
-          codex={x}
-          codey={y}
-          onClick={() => this.rightmove()}
-        ></button>
-      );
-    } else if (x === 1 && y === 2) {
-      return (
-        <button
-          className="bdirection"
-          codex={x}
-          codey={y}
-          onClick={() => this.downmove()}
-        ></button>
-      );
-    } else return <button className="bdirection" codex={x} codey={y}></button>;
-  }
-  //  const funtimer = <div>{MyStopwatch()}</div>;
-
   render() {
     var { controltime } = this.state;
     const elementS = [];

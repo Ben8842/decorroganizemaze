@@ -1,109 +1,17 @@
-.HeaderSpot {
-  margin: 50px;
+Body {
   background-color: black;
-  border-color: black;
-  border: solid;
-}
-#topinfo {
-  background-color: rgba(128, 128, 128, 0.13);
-  width: 50%;
-  margin: 0px;
-  padding: 0px;
-  border-radius: 50px;
-  text-align: center;
-}
-
-a {
-  text-decoration: none;
-  color: white;
-  font-size: 20px;
-}
-
-a:hover {
-  color: white;
-  font-size: 20px;
-}
-
-a:visited {
-  color: white;
-  font-size: 20px;
-}
-
-a:active {
-  color: white;
-  font-size: 20px;
-}
-
-#topinfo:focus {
-  outline: none;
-}
-
-#nameT {
-  background-color: black;
-  font-size: 25px;
-  text-align: center;
-}
-
-.wrapper {
-  background-color: white;
-}
-
-#clocktime {
-  color: rgb(234, 0, 255);
 }
 
 .entireThing {
-  margin: 50px;
+  margin: 0px;
   background-color: black;
   text-align: center;
-  z-index: 1;
-  opacity: 0.95;
+  width: 100%;
+  height: 100%;
 }
 
 button:focus {
   outline: none;
-}
-
-#squareGreen {
-  background-color: green;
-  color: black;
-
-  border: none;
-
-  font-weight: bold;
-
-  height: 18px;
-
-  text-align: center;
-  width: 75px;
-}
-
-.App {
-  text-align: center;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .b1 {
@@ -112,10 +20,10 @@ button:focus {
   color: black;
   padding: 0;
 
-  height: 38px;
-  margin: -4px;
+  height: 8px;
+  margin: 0px;
   text-align: center;
-  width: 38px;
+  width: 8px;
 }
 
 .bplus {
@@ -123,42 +31,10 @@ button:focus {
   background-color: grey;
   color: black;
   padding: 0;
-  height: 38px;
-  margin: -4px;
+  height: 8px;
+  margin: 0px;
   text-align: center;
-  width: 38px;
-}
-
-.green {
-  border: none;
-  background-color: lightgreen;
-  color: white;
-  padding: 0;
-  font-size: 5px;
-  margin: -4px;
-  height: 38px;
-  text-align: center;
-  width: 38px;
-}
-
-#largebutton {
-  height: 35px;
-  width: 150px;
-  font-size: 20px;
-  font-weight: bold;
-  margin: 15px;
-  padding: 5;
-  color: white;
-  background-color: rgb(68, 68, 68);
-}
-
-.largebutton {
-  height: 90px;
-  width: 250px;
-  font-size: 50px;
-  font-weight: bold;
-  color: white;
-  background-color: rgb(68, 68, 68);
+  width: 8px;
 }
 
 .orange {
@@ -167,10 +43,10 @@ button:focus {
   color: white;
   padding: 0;
   font-size: 5px;
-  margin: -4px;
-  height: 38px;
+  margin: 0px;
+  height: 8px;
   text-align: center;
-  width: 38px;
+  width: 8px;
 }
 
 .orange2 {
@@ -179,10 +55,10 @@ button:focus {
   color: white;
   padding: 0;
   font-size: 5px;
-  margin: -4px;
-  height: 38px;
+  margin: 0px;
+  height: 8px;
   text-align: center;
-  width: 38px;
+  width: 8px;
 }
 
 .orange2 {
@@ -191,10 +67,10 @@ button:focus {
   color: white;
   padding: 0;
   font-size: 5px;
-  margin: -4px;
-  height: 38px;
+  margin: 0px;
+  height: 8px;
   text-align: center;
-  width: 38px;
+  width: 8px;
 }
 
 .orange3 {
@@ -203,10 +79,10 @@ button:focus {
   color: white;
   padding: 0;
   font-size: 5px;
-  margin: -4px;
-  height: 38px;
+  margin: 0px;
+  height: 8px;
   text-align: center;
-  width: 38px;
+  width: 8px;
 }
 
 .orange4 {
@@ -215,10 +91,10 @@ button:focus {
   color: white;
   padding: 0;
   font-size: 5px;
-  margin: -4px;
-  height: 38px;
+  margin: 0px;
+  height: 8px;
   text-align: center;
-  width: 38px;
+  width: 8px;
 }
 
 .orange5 {
@@ -227,10 +103,10 @@ button:focus {
   color: white;
   padding: 0;
   font-size: 5px;
-  margin: -4px;
-  height: 38px;
+  margin: 0px;
+  height: 8px;
   text-align: center;
-  width: 38px;
+  width: 8px;
 }
 
 .orange6 {
@@ -239,10 +115,10 @@ button:focus {
   color: white;
   padding: 0;
   font-size: 5px;
-  margin: -4px;
-  height: 38px;
+  margin: 0px;
+  height: 8px;
   text-align: center;
-  width: 38px;
+  width: 8px;
 }
 
 .orange7 {
@@ -251,10 +127,10 @@ button:focus {
   color: white;
   padding: 0;
   font-size: 5px;
-  margin: -4px;
-  height: 38px;
+  margin: 0px;
+  height: 8px;
   text-align: center;
-  width: 38px;
+  width: 8px;
 }
 
 .orange8 {
@@ -263,10 +139,10 @@ button:focus {
   color: white;
   padding: 0;
   font-size: 5px;
-  margin: -4px;
-  height: 38px;
+  margin: 0px;
+  height: 8px;
   text-align: center;
-  width: 38px;
+  width: 8px;
 }
 
 .lightorange {
@@ -275,10 +151,10 @@ button:focus {
   color: white;
   padding: 0;
   font-size: 5px;
-  margin: -4px;
-  height: 38px;
+  margin: 0px;
+  height: 8px;
   text-align: center;
-  width: 38px;
+  width: 8px;
 }
 
 .blue {
@@ -287,16 +163,10 @@ button:focus {
   color: white;
   padding: 0;
   font-size: 5px;
-  margin: -4px;
-  height: 38px;
+  margin: 0px;
+  height: 8px;
   text-align: center;
-  width: 38px;
-}
-
-.slider {
-  text-align: center;
-  margin: 20px;
-  align-content: center;
+  width: 8px;
 }
 
 .icon {
@@ -305,93 +175,331 @@ button:focus {
   color: white;
   padding: 0;
   font-size: 5px;
-  margin: -4px;
-  height: 38px;
+  margin: 0px;
+  height: 8px;
   text-align: center;
-  width: 38px;
+  width: 8px;
 }
 
 .bgrey {
   border: none;
-  background-color: rgb(107, 105, 107);
+  background-color: rgba(107, 105, 107, 0);
   color: white;
   padding: 0;
   font-size: 5px;
-  margin: -4px;
-  height: 38px;
+  margin: 0px;
+  height: 50px;
   text-align: center;
-  width: 38px;
-}
-
-.bdirection {
-  border: none;
-  background-color: rgb(0, 255, 21);
-  color: white;
-  padding: 0;
-  font-size: 5px;
-  margin: -4px;
-  height: 38px;
-  text-align: center;
-  width: 38px;
-}
-
-.directionLand {
-  margin: 40px;
-}
-
-#explanation {
-  font-size: 24px;
-  text-align: center;
-  border-radius: 35px;
-  border: solid;
-  border-width: 10px;
-  color: white;
-  background-color: rgb(107, 105, 107);
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  padding: 0;
-  align-items: center;
-  margin-top: 30px;
-}
-
-#sortouttext {
-  margin-top: 30px;
-  margin: 40px;
+  width: 50px;
 }
 
 #divinside {
   margin: 50%;
 }
 
-#spinningadventure {
-  height: 25px;
-  width: 25px;
+.newLine {
+  height: 8px;
+}
+#nameT {
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  text-align: left;
+}
 
-  text-align: left;
-  align-items: left;
+#more {
+  text-align: center;
+  margin: 20px;
+  padding: 10px;
 }
-#spinwrap {
-  height: 25px;
-  width: 25px;
-  position: fixed;
-  right: 800;
-  text-align: left;
-  align-items: left;
-}
-#loading {
-  color: rgb(72, 255, 0);
-  font-size: 25px;
+#topinfo {
+  background-color: rgba(128, 128, 128, 0.13);
+  width: 50%;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 50px;
+  color: white;
+  font-size: 18px;
+  margin-top: 20px;
+  align-items: center;
   text-align: center;
 }
-#scoreDisplay {
-  color: rgb(251, 255, 0);
-  font-size: 25px;
-  text-align: left;
+
+#topinfo:focus {
+  outline: none;
 }
 
-#endDisplay {
-  color: rgb(251, 255, 0);
-  font-size: 25px;
-  text-align: left;
+a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+
+a:hover {
+  color: white;
+  font-size: 18px;
+}
+
+a:visited {
+  color: white;
+  font-size: 18px;
+}
+
+a:active {
+  color: white;
+  font-size: 18px;
+}
+
+@media only screen and (max-width: 700px) {
+  Body {
+    background-color: black;
+  }
+
+  .entireThing {
+    margin: 0px;
+    background-color: black;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  button:focus {
+    outline: none;
+  }
+
+  .b1 {
+    border: none;
+    background-color: black;
+    color: black;
+    padding: 0;
+
+    height: 8px;
+    margin: 0px;
+    text-align: center;
+    width: 8px;
+  }
+
+  .bplus {
+    border: none;
+    background-color: grey;
+    color: black;
+    padding: 0;
+    height: 8px;
+    margin: 0px;
+    text-align: center;
+    width: 8px;
+  }
+
+  .orange {
+    border: none;
+    background-color: rgb(255, 0, 200);
+    color: white;
+    padding: 0;
+    font-size: 5px;
+    margin: 0px;
+    height: 8px;
+    text-align: center;
+    width: 8px;
+  }
+
+  .orange2 {
+    border: none;
+    background-color: rgb(234, 0, 255);
+    color: white;
+    padding: 0;
+    font-size: 5px;
+    margin: 0px;
+    height: 8px;
+    text-align: center;
+    width: 8px;
+  }
+
+  .orange2 {
+    border: none;
+    background-color: rgb(162, 0, 255);
+    color: white;
+    padding: 0;
+    font-size: 5px;
+    margin: 0px;
+    height: 8px;
+    text-align: center;
+    width: 8px;
+  }
+
+  .orange3 {
+    border: none;
+    background-color: rgb(0, 17, 255);
+    color: white;
+    padding: 0;
+    font-size: 5px;
+    margin: 0px;
+    height: 8px;
+    text-align: center;
+    width: 8px;
+  }
+
+  .orange4 {
+    border: none;
+    background-color: rgb(0, 217, 255);
+    color: white;
+    padding: 0;
+    font-size: 5px;
+    margin: 0px;
+    height: 8px;
+    text-align: center;
+    width: 8px;
+  }
+
+  .orange5 {
+    border: none;
+    background-color: rgb(72, 255, 0);
+    color: white;
+    padding: 0;
+    font-size: 5px;
+    margin: 0px;
+    height: 8px;
+    text-align: center;
+    width: 8px;
+  }
+
+  .orange6 {
+    border: none;
+    background-color: rgb(251, 255, 0);
+    color: white;
+    padding: 0;
+    font-size: 5px;
+    margin: 0px;
+    height: 8px;
+    text-align: center;
+    width: 8px;
+  }
+
+  .orange7 {
+    border: none;
+    background-color: rgb(255, 124, 2);
+    color: white;
+    padding: 0;
+    font-size: 5px;
+    margin: 0px;
+    height: 8px;
+    text-align: center;
+    width: 8px;
+  }
+
+  .orange8 {
+    border: none;
+    background-color: rgb(255, 0, 0);
+    color: white;
+    padding: 0;
+    font-size: 5px;
+    margin: 0px;
+    height: 8px;
+    text-align: center;
+    width: 8px;
+  }
+
+  .lightorange {
+    border: none;
+    background-color: rgb(250, 218, 158);
+    color: white;
+    padding: 0;
+    font-size: 5px;
+    margin: 0px;
+    height: 8px;
+    text-align: center;
+    width: 8px;
+  }
+
+  .blue {
+    border: none;
+    background-color: blue;
+    color: white;
+    padding: 0;
+    font-size: 5px;
+    margin: 0px;
+    height: 8px;
+    text-align: center;
+    width: 8px;
+  }
+
+  .icon {
+    border: none;
+    background-color: grey;
+    color: white;
+    padding: 0;
+    font-size: 5px;
+    margin: 0px;
+    height: 8px;
+    text-align: center;
+    width: 8px;
+  }
+
+  .bgrey {
+    border: none;
+    background-color: rgba(107, 105, 107, 0);
+    color: white;
+    padding: 0;
+    font-size: 5px;
+    margin: 0px;
+    height: 50px;
+    text-align: center;
+    width: 50px;
+  }
+
+  #divinside {
+    margin: 50%;
+  }
+
+  .newLine {
+    height: 8px;
+  }
+  #nameT {
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    text-align: left;
+  }
+
+  #more {
+    text-align: center;
+    margin: 20px;
+    padding: 10px;
+  }
+  #topinfo {
+    background-color: rgba(128, 128, 128, 0.13);
+    width: 50%;
+    margin: 0px;
+    padding: 0px;
+    border-radius: 50px;
+    color: white;
+    font-size: 18px;
+    margin-top: 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  #topinfo:focus {
+    outline: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+  }
+
+  a:hover {
+    color: white;
+    font-size: 18px;
+  }
+
+  a:visited {
+    color: white;
+    font-size: 18px;
+  }
+
+  a:active {
+    color: white;
+    font-size: 18px;
+  }
 }

@@ -4,7 +4,6 @@ import Bar from "./components/Bar";
 import Circle from "./components/Circle";
 
 import "./App.css";
-import "./AppMobile.css";
 
 class App extends Component {
   constructor(props) {
