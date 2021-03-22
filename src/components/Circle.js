@@ -5,7 +5,7 @@ class Circle extends Component {
     super(props);
 
     this.state = {
-      pathO: [[0, 0]],
+      pathO: [[this.props.height / 2, this.props.height / 2]],
       stepback: 3,
       complete: false,
       icon: [0, 0],
@@ -160,7 +160,7 @@ class Circle extends Component {
   }
 
   pathgenerator() {
-    var { pathO } = this.state;
+    var { pathO, height } = this.state;
 
     var exwy = pathO;
 
@@ -188,9 +188,9 @@ class Circle extends Component {
       var chooser = randomNumber(1, 3);
 
       if (chooser === 1) {
-        exwy.push([1, 0], [2, 0]);
+        exwy.push([height / 2, height / 2], [height / 2 + 1, height / 2]);
       } else if (chooser === 2) {
-        exwy.push([0, 1], [0, 2]);
+        exwy.push([height / 2, height / 2], [height / 2, height / 2 + 1]);
       }
     } else {
       var potentialMove = [
@@ -254,11 +254,33 @@ class Circle extends Component {
       ////////////////////// this determines if its on the board.
       var boards = [oneBoard, twoBoard, threeBoard, fourBoard];
       for (var z = 0; z < 4; z++) {
+        var x = potentialMove[z][0];
+        var y = potentialMove[z][1];
+        var xw = this.props.width;
+        var yh = this.props.height;
+
+        function distance(ex, wy, zize) {
+          var yhr = zize / 2;
+          var center = [zize / 2, zize / 2];
+          var xhold = ex - center[0];
+          var xholdmore = Math.pow(xhold, 2);
+          console.log(xholdmore);
+
+          var yhold = wy - center[1];
+          var yholdmore = Math.pow(yhold, 2);
+          var dist = Math.sqrt(xholdmore + yholdmore);
+          console.log(dist);
+          if (dist >= yhr) {
+            return false;
+          } else return true;
+        }
+
         if (
-          0 <= potentialMove[z][0] &&
-          potentialMove[z][0] <= this.props.width &&
-          0 <= potentialMove[z][1] &&
-          potentialMove[z][1] <= this.props.height - 1
+          0 <= x &&
+          x <= xw &&
+          0 <= y &&
+          y <= yh - 1 &&
+          distance(x, y, yh) === false
         ) {
           boards[z] = false;
         } else boards[z] = true;
@@ -424,11 +446,33 @@ class Circle extends Component {
     ////////////////////// this determines if its on the board.
     var boards = [oneBoard, twoBoard, threeBoard, fourBoard];
     for (var z = 0; z < 4; z++) {
+      var x = potentialMove[z][0];
+      var y = potentialMove[z][1];
+      var xw = this.props.width;
+      var yh = this.props.height;
+
+      function distance(ex, wy, zize) {
+        var yhr = zize / 2;
+        var center = [zize / 2, zize / 2];
+        var xhold = ex - center[0];
+        var xholdmore = Math.pow(xhold, 2);
+        console.log(xholdmore);
+
+        var yhold = wy - center[1];
+        var yholdmore = Math.pow(yhold, 2);
+        var dist = Math.sqrt(xholdmore + yholdmore);
+        console.log(dist);
+        if (dist >= yhr) {
+          return false;
+        } else return true;
+      }
+
       if (
-        0 <= potentialMove[z][0] &&
-        potentialMove[z][0] <= this.props.width &&
-        0 <= potentialMove[z][1] &&
-        potentialMove[z][1] <= this.props.height - 1
+        0 <= x &&
+        x <= xw &&
+        0 <= y &&
+        y <= yh - 1 &&
+        distance(x, y, yh) === false
       ) {
         boards[z] = false;
       } else boards[z] = true;

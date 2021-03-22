@@ -49,12 +49,10 @@ class App extends Component {
   render() {
     const contact = (
       <div>
-        <Circle sizeValue="20" width="34" height="5" />
+        <Circle sizeValue="20" width="40" height="40" />
 
         <p id="nameT">
           <p> Hello World </p>
-
-          <Circle sizeValue="20" width="34" height="5" />
         </p>
       </div>
     );
