@@ -49,7 +49,7 @@ class App extends Component {
   render() {
     const contact = (
       <div>
-        <Circle sizeValue="20" width="40" height="40" />
+        <Circle sizeValue="28" width="28" height="28" />
 
         <p id="nameT">
           <p> Hello World </p>
@@ -76,7 +76,6 @@ class App extends Component {
     );
     return (
       <div id="more">
-        <Bar sizeValue="20" width="36" height="5" />
         <button id="topinfo" onClick={() => this.showAbout()}>
           Circle
         </button>
@@ -97,8 +96,6 @@ class App extends Component {
         {this.state.contactFlag ? contact : null}
         {this.state.aboutFlag ? aboutContainer : null}
         {this.state.projectFlag ? projectContainer : null}
-        <Bar width="5" height="20" />
-        <Bar width="5" height="20" />
       </div>
     );
   }

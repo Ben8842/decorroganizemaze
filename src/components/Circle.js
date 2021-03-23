@@ -1,5 +1,29 @@
 import React, { Component } from "react";
 
+function distance(ex, wy, zize) {
+  var yhr = zize / 2;
+  var center = [zize / 2, zize / 2];
+  var xhold = ex - center[0];
+  var xholdmore = Math.pow(xhold, 2);
+  console.log("x-x squared");
+  console.log(xholdmore);
+
+  var yhold = wy - center[1];
+  var yholdmore = Math.pow(yhold, 2);
+  console.log("y-y squared");
+  console.log(yholdmore);
+  var dist = Math.sqrt(xholdmore + yholdmore);
+  console.log("distance");
+  console.log(dist);
+  if (dist >= yhr) {
+    console.log("distance false");
+    return false;
+  } else {
+    console.log("distance true");
+    return true;
+  }
+}
+
 class Circle extends Component {
   constructor(props) {
     super(props);
@@ -29,17 +53,15 @@ class Circle extends Component {
     this.pathgeneratorOrigin();
   }
 
-  renderSquare(x, y) {
-    var { pathO, stepback, icon } = this.state;
+  renderCircle(x, y) {
+    var { pathO, stepback } = this.state;
 
     var bid = "b1";
     var bad = "bplus";
 
     var i = null;
     for (i = 0; i < pathO.length; i++) {
-      if (stepback === pathO.length && x === icon[0] && y === icon[1]) {
-        return <button className="icon" codex={x} codey={y}></button>;
-      } else if (
+      if (
         x === pathO[pathO.length - 1][0] &&
         y === pathO[pathO.length - 1][1] &&
         stepback < pathO.length
@@ -136,20 +158,6 @@ class Circle extends Component {
     return <button className={bid} codex={x} codey={y}></button>;
   }
 
-  mazeAgain() {
-    this.setState({
-      pathO: [[0, 0]],
-      stepback: 3,
-      complete: false,
-      icon: [0, 0],
-      controltime: false,
-      pointz: 0,
-      mazeEnd: false,
-      wallscore: 0,
-    });
-    this.pathgeneratorOrigin();
-  }
-
   pathgeneratorOrigin() {
     var interval = setInterval(this.pathgenerator.bind(this), 25);
     this.setState({
@@ -188,9 +196,11 @@ class Circle extends Component {
       var chooser = randomNumber(1, 3);
 
       if (chooser === 1) {
-        exwy.push([height / 2, height / 2], [height / 2 + 1, height / 2]);
+        //   exwy.push([height / 2, height / 2], [height / 2 + 1, height / 2]);
+        exwy.push([height / 2 + 1, height / 2], [height / 2 + 2, height / 2]);
       } else if (chooser === 2) {
-        exwy.push([height / 2, height / 2], [height / 2, height / 2 + 1]);
+        //  exwy.push([height / 2, height / 2], [height / 2, height / 2 + 1]);
+        exwy.push([height / 2, height / 2 + 1], [height / 2, height / 2 + 2]);
       }
     } else {
       var potentialMove = [
@@ -259,28 +269,12 @@ class Circle extends Component {
         var xw = this.props.width;
         var yh = this.props.height;
 
-        function distance(ex, wy, zize) {
-          var yhr = zize / 2;
-          var center = [zize / 2, zize / 2];
-          var xhold = ex - center[0];
-          var xholdmore = Math.pow(xhold, 2);
-          console.log(xholdmore);
-
-          var yhold = wy - center[1];
-          var yholdmore = Math.pow(yhold, 2);
-          var dist = Math.sqrt(xholdmore + yholdmore);
-          console.log(dist);
-          if (dist >= yhr) {
-            return false;
-          } else return true;
-        }
-
         if (
           0 <= x &&
           x <= xw &&
           0 <= y &&
           y <= yh - 1 &&
-          distance(x, y, yh) === false
+          distance(x, y, yh) === true
         ) {
           boards[z] = false;
         } else boards[z] = true;
@@ -451,28 +445,12 @@ class Circle extends Component {
       var xw = this.props.width;
       var yh = this.props.height;
 
-      function distance(ex, wy, zize) {
-        var yhr = zize / 2;
-        var center = [zize / 2, zize / 2];
-        var xhold = ex - center[0];
-        var xholdmore = Math.pow(xhold, 2);
-        console.log(xholdmore);
-
-        var yhold = wy - center[1];
-        var yholdmore = Math.pow(yhold, 2);
-        var dist = Math.sqrt(xholdmore + yholdmore);
-        console.log(dist);
-        if (dist >= yhr) {
-          return false;
-        } else return true;
-      }
-
       if (
         0 <= x &&
         x <= xw &&
         0 <= y &&
         y <= yh - 1 &&
-        distance(x, y, yh) === false
+        distance(x, y, yh) === true
       ) {
         boards[z] = false;
       } else boards[z] = true;
@@ -572,7 +550,7 @@ class Circle extends Component {
     var y;
     for (y = 0; y < this.props.height; y++) {
       for (x = 0; x < this.props.width; x++) {
-        elementS.push(this.renderSquare(x, y));
+        elementS.push(this.renderCircle(x, y));
       }
       elementZ.push(
         <div className="newLine">

@@ -151,6 +151,7 @@ class Bar extends Component {
 
   pathgeneratorOrigin() {
     var interval = setInterval(this.pathgenerator.bind(this), 25);
+
     this.setState({
       interval: interval,
       mazeProcessing: true,
@@ -158,33 +159,33 @@ class Bar extends Component {
     });
   }
 
+  randomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+
+  pastDirection(x1, x2, y1, y2) {
+    if (x1 === x2 && y1 > y2) {
+      return 1;
+      //up
+    } else if (x1 === x2 && y1 < y2) {
+      return 2;
+      //down
+    } else if (x1 > x2 && y1 === y2) {
+      return 3;
+      //left
+    } else if (x1 < x2 && y1 === y2) {
+      return 4;
+      //right
+    }
+  }
+
   pathgenerator() {
     var { pathO } = this.state;
 
     var exwy = pathO;
 
-    function randomNumber(min, max) {
-      return Math.floor(Math.random() * (max - min)) + min;
-    }
-
-    function pastDirection(x1, x2, y1, y2) {
-      if (x1 === x2 && y1 > y2) {
-        return 1;
-        //up
-      } else if (x1 === x2 && y1 < y2) {
-        return 2;
-        //down
-      } else if (x1 > x2 && y1 === y2) {
-        return 3;
-        //left
-      } else if (x1 < x2 && y1 === y2) {
-        return 4;
-        //right
-      }
-    }
-
     if (pathO.length === 1) {
-      var chooser = randomNumber(1, 3);
+      var chooser = this.randomNumber(1, 3);
 
       if (chooser === 1) {
         exwy.push([1, 0], [2, 0]);
@@ -192,13 +193,7 @@ class Bar extends Component {
         exwy.push([0, 1], [0, 2]);
       }
     } else {
-      var potentialMove = [
-        [exwy[exwy.length - 1][0] + 2, exwy[exwy.length - 1][1]],
-        [exwy[exwy.length - 1][0] - 2, exwy[exwy.length - 1][1]],
-        [exwy[exwy.length - 1][0], exwy[exwy.length - 1][1] + 2],
-        [exwy[exwy.length - 1][0], exwy[exwy.length - 1][1] - 2],
-      ];
-
+      var potentialMove = this.calculatesCoordinatesPotentialMoves(exwy, 1);
       //these flags below mark whether the potential move exists in move array
       var one = null;
       var two = null;
@@ -284,9 +279,9 @@ class Bar extends Component {
       } else if (pathO.length !== 1) {
         this.state.stepback = 3;
 
-        var chooserNext = randomNumber(1, actualPotentialMoves.length + 1);
+        var chooserNext = this.randomNumber(1, actualPotentialMoves.length + 1);
 
-        var newDir = pastDirection(
+        var newDir = this.pastDirection(
           exwy[exwy.length - 1][0],
           actualPotentialMoves[chooserNext - 1][0],
           exwy[exwy.length - 1][1],
@@ -335,38 +330,27 @@ class Bar extends Component {
     this.forceUpdate();
   }
 
-  morePathFinders() {
-    var { pathO, stepback } = this.state;
-
-    var exwy = pathO;
-
-    function randomNumber(min, max) {
-      return Math.floor(Math.random() * (max - min)) + min;
-    }
-
-    var zcounter = stepback;
-    function pastAbsDirection(x1, x2, y1, y2) {
-      if (x1 === x2 && y1 > y2) {
-        return 1;
-        //up
-      } else if (x1 === x2 && y1 < y2) {
-        return 2;
-        //down
-      } else if (x1 > x2 && y1 === y2) {
-        return 3;
-        //left
-      } else if (x1 < x2 && y1 === y2) {
-        return 4;
-        //right
-      }
-    }
-
-    var potentialMove = [
+  calculatesCoordinatesPotentialMoves(exwy, zcounter) {
+    return [
       [exwy[exwy.length - zcounter][0] + 2, exwy[exwy.length - zcounter][1]],
       [exwy[exwy.length - zcounter][0] - 2, exwy[exwy.length - zcounter][1]],
       [exwy[exwy.length - zcounter][0], exwy[exwy.length - zcounter][1] + 2],
       [exwy[exwy.length - zcounter][0], exwy[exwy.length - zcounter][1] - 2],
     ];
+  }
+
+  morePathFinders() {
+    var { pathO, stepback } = this.state;
+
+    var exwy = pathO;
+
+    var zcounter = stepback;
+
+    //calculates coordinates of potential moves
+    var potentialMove = this.calculatesCoordinatesPotentialMoves(
+      exwy,
+      zcounter
+    );
 
     //these flags below mark whether the potential move exists in move array
     var one = null;
@@ -455,10 +439,10 @@ class Bar extends Component {
     if (actualPotentialMoves.length === 0) {
       //if length is zero here, then you know there is a 'dead end' in the maze
     } else if (pathO.length !== 1) {
-      var chooserNext = randomNumber(1, actualPotentialMoves.length + 1);
+      var chooserNext = this.randomNumber(1, actualPotentialMoves.length + 1);
 
       //execution and use of a function that determines the direction of the last move
-      var newDir = pastAbsDirection(
+      var newDir = this.pastDirection(
         exwy[exwy.length - zcounter][0],
         actualPotentialMoves[chooserNext - 1][0],
         exwy[exwy.length - zcounter][1],
