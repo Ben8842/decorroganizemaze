@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Building from "./components/Building";
 import Bar from "./components/Bar";
 import Circle from "./components/Circle";
+import Diamond from "./components/Diamond";
 
 import "./App.css";
 
@@ -63,15 +64,18 @@ class App extends Component {
     );
     const projectContainer = (
       <div id="nameT">
-        <Bar sizeValue="20" width="34" height="5" />
+        <Bar sizeValue="20" width="68" height="5" />
         More things here
         <Building sizeValue="20" />
       </div>
     );
     const aboutContainer = (
       <div id="nameT">
-        <Bar sizeValue="20" width="34" height="5" />
-        Super great things here
+        <Diamond sizeValue="8" width="8" height="8" />
+        <Diamond sizeValue="10" width="10" height="10" />
+        <Diamond sizeValue="12" width="12" height="12" />
+        <Diamond sizeValue="16" width="16" height="16" />
+        <Diamond sizeValue="20" width="20" height="20" />
       </div>
     );
     return (
