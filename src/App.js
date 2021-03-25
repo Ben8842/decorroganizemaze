@@ -48,7 +48,7 @@ class App extends Component {
   }
 
   render() {
-    const contact = (
+    const circleContainer = (
       <div>
         <Circle sizeValue="28" width="28" height="28" />
 
@@ -62,32 +62,33 @@ class App extends Component {
         Hello World <p id="nameT">Yes</p>
       </div>
     );
-    const projectContainer = (
+    const barContainer = (
       <div id="nameT">
         <Bar sizeValue="20" width="68" height="5" />
         More things here
         <Building sizeValue="20" />
+        <Bar sizeValue="20" width="5" height="46" />
       </div>
     );
-    const aboutContainer = (
+    const diamondContainer = (
       <div id="nameT">
-        <Diamond sizeValue="8" width="8" height="8" />
-        <Diamond sizeValue="10" width="10" height="10" />
-        <Diamond sizeValue="12" width="12" height="12" />
-        <Diamond sizeValue="16" width="16" height="16" />
-        <Diamond sizeValue="20" width="20" height="20" />
+        <Diamond height="8" pixelSize="lrg" />
+        <Diamond height="8" pixelSize="sml" />
+        <Diamond height="8" pixelSize="med" />
+
+        <Diamond height="22" pixelSize="med" />
       </div>
     );
     return (
       <div id="more">
         <button id="topinfo" onClick={() => this.showAbout()}>
-          Circle
+          Diamond
         </button>
         <button id="topinfo" onClick={() => this.showProjects()}>
           Bar
         </button>
         <button id="topinfo" onClick={() => this.showContact()}>
-          More
+          Circle
         </button>
 
         {!this.state.aboutFlag &&
@@ -97,9 +98,9 @@ class App extends Component {
           : null}
 
         <div>{"    "}</div>
-        {this.state.contactFlag ? contact : null}
-        {this.state.aboutFlag ? aboutContainer : null}
-        {this.state.projectFlag ? projectContainer : null}
+        {this.state.contactFlag ? circleContainer : null}
+        {this.state.aboutFlag ? diamondContainer : null}
+        {this.state.projectFlag ? barContainer : null}
       </div>
     );
   }

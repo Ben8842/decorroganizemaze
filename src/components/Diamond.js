@@ -21,6 +21,7 @@ class Diamond extends Component {
       flagStart: false,
       width: this.props.width,
       height: this.props.height,
+      pixelSize: this.props.pixelSize,
     };
   }
 
@@ -30,9 +31,7 @@ class Diamond extends Component {
 
   renderDiamond(x, y) {
     var { pathO, stepback, icon } = this.state;
-
-    var bid = "b1";
-    var bad = "bplus";
+    var sizeHold = this.props.pixelSize;
 
     var i = null;
     for (i = 0; i < pathO.length; i++) {
@@ -41,14 +40,26 @@ class Diamond extends Component {
         y === pathO[pathO.length - 1][1] &&
         stepback < pathO.length
       ) {
-        return <button className="blue" codex={x} codey={y}></button>;
+        return (
+          <button
+            className={"bSquare bSquare--grey bSquare--" + sizeHold}
+            codex={x}
+            codey={y}
+          ></button>
+        );
       } else if (
         x ===
           pathO[pathO.length - stepback < 0 ? 0 : pathO.length - stepback][0] &&
         y ===
           pathO[pathO.length - stepback < 0 ? 0 : pathO.length - stepback][1]
       ) {
-        return <button className="orange" codex={x} codey={y}></button>;
+        return (
+          <button
+            className={"bSquare bSquare--pink bSquare--" + sizeHold}
+            codex={x}
+            codey={y}
+          ></button>
+        );
       } else if (
         x ===
           pathO[
@@ -59,7 +70,13 @@ class Diamond extends Component {
             pathO.length - stepback - 1 < 0 ? 0 : pathO.length - 1 - stepback
           ][1]
       ) {
-        return <button className="orange2" codex={x} codey={y}></button>;
+        return (
+          <button
+            className={"bSquare bSquare--pink2 bSquare--" + sizeHold}
+            codex={x}
+            codey={y}
+          ></button>
+        );
       } else if (
         x ===
           pathO[
@@ -70,7 +87,13 @@ class Diamond extends Component {
             pathO.length - stepback - 2 < 0 ? 0 : pathO.length - 2 - stepback
           ][1]
       ) {
-        return <button className="orange3" codex={x} codey={y}></button>;
+        return (
+          <button
+            className={"bSquare bSquare--purple bSquare--" + sizeHold}
+            codex={x}
+            codey={y}
+          ></button>
+        );
       } else if (
         x ===
           pathO[
@@ -81,7 +104,13 @@ class Diamond extends Component {
             pathO.length - stepback - 3 < 0 ? 0 : pathO.length - 3 - stepback
           ][1]
       ) {
-        return <button className="orange4" codex={x} codey={y}></button>;
+        return (
+          <button
+            className={"bSquare bSquare--blue bSquare--" + sizeHold}
+            codex={x}
+            codey={y}
+          ></button>
+        );
       } else if (
         x ===
           pathO[
@@ -92,7 +121,13 @@ class Diamond extends Component {
             pathO.length - stepback - 4 < 0 ? 0 : pathO.length - 4 - stepback
           ][1]
       ) {
-        return <button className="orange5" codex={x} codey={y}></button>;
+        return (
+          <button
+            className={"bSquare bSquare--blue2 bSquare--" + sizeHold}
+            codex={x}
+            codey={y}
+          ></button>
+        );
       } else if (
         x ===
           pathO[
@@ -103,7 +138,13 @@ class Diamond extends Component {
             pathO.length - stepback - 5 < 0 ? 0 : pathO.length - 5 - stepback
           ][1]
       ) {
-        return <button className="orange6" codex={x} codey={y}></button>;
+        return (
+          <button
+            className={"bSquare bSquare--green bSquare--" + sizeHold}
+            codex={x}
+            codey={y}
+          ></button>
+        );
       } else if (
         x ===
           pathO[
@@ -114,7 +155,13 @@ class Diamond extends Component {
             pathO.length - stepback - 6 < 0 ? 0 : pathO.length - 6 - stepback
           ][1]
       ) {
-        return <button className="orange7" codex={x} codey={y}></button>;
+        return (
+          <button
+            className={"bSquare bSquare--yellow bSquare--" + sizeHold}
+            codex={x}
+            codey={y}
+          ></button>
+        );
       } else if (
         x ===
           pathO[
@@ -125,12 +172,30 @@ class Diamond extends Component {
             pathO.length - stepback - 7 < 0 ? 0 : pathO.length - 7 - stepback
           ][1]
       ) {
-        return <button className="orange8" codex={x} codey={y}></button>;
+        return (
+          <button
+            className={"bSquare bSquare--orange bSquare--" + sizeHold}
+            codex={x}
+            codey={y}
+          ></button>
+        );
       } else if (x === pathO[i][0] && y === pathO[i][1]) {
-        return <button className={bad} codex={x} codey={y}></button>;
+        return (
+          <button
+            className={"bSquare bSquare--grey bSquare--" + sizeHold}
+            codex={x}
+            codey={y}
+          ></button>
+        );
       }
     }
-    return <button className={bid} codex={x} codey={y}></button>;
+    return (
+      <button
+        className={"bSquare bSquare--black bSquare--" + sizeHold}
+        codex={x}
+        codey={y}
+      ></button>
+    );
   }
 
   pathgeneratorOrigin() {
@@ -456,17 +521,17 @@ class Diamond extends Component {
     var x;
     var y;
     for (y = 0; y < this.props.height; y++) {
-      for (x = 0; x < this.props.width; x++) {
+      for (x = 0; x < this.props.height; x++) {
         elementS.push(this.renderDiamond(x, y));
       }
       elementZ.push(
-        <div className="newLine">
+        <div className={"newLine--" + this.props.pixelSize}>
           {elementS.map((value, index) => {
             return value;
           })}
         </div>
       );
-      for (x = 0; x < this.props.width; x++) {
+      for (x = 0; x < this.props.height; x++) {
         elementS.pop();
       }
     }
