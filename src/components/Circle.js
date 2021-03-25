@@ -5,21 +5,21 @@ function distance(ex, wy, zize) {
   var center = [zize / 2, zize / 2];
   var xhold = ex - center[0];
   var xholdmore = Math.pow(xhold, 2);
-  console.log("x-x squared");
-  console.log(xholdmore);
+  // console.log("x-x squared");
+  // console.log(xholdmore);
 
   var yhold = wy - center[1];
   var yholdmore = Math.pow(yhold, 2);
-  console.log("y-y squared");
-  console.log(yholdmore);
+  //  console.log("y-y squared");
+  //console.log(yholdmore);
   var dist = Math.sqrt(xholdmore + yholdmore);
-  console.log("distance");
-  console.log(dist);
+  //console.log("distance");
+  //console.log(dist);
   if (dist >= yhr) {
-    console.log("distance false");
+    //console.log("distance false");
     return false;
   } else {
-    console.log("distance true");
+    // console.log("distance true");
     return true;
   }
 }
@@ -539,8 +539,6 @@ class Circle extends Component {
 
     this.forceUpdate();
   }
-
-  //  const funtimer = <div>{MyStopwatch()}</div>;
 
   render() {
     const elementS = [];

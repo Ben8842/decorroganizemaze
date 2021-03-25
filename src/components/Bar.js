@@ -135,20 +135,6 @@ class Bar extends Component {
     return <button className={bid} codex={x} codey={y}></button>;
   }
 
-  mazeAgain() {
-    this.setState({
-      pathO: [[0, 0]],
-      stepback: 3,
-      complete: false,
-      icon: [0, 0],
-      controltime: false,
-      pointz: 0,
-      mazeEnd: false,
-      wallscore: 0,
-    });
-    this.pathgeneratorOrigin();
-  }
-
   pathgeneratorOrigin() {
     var interval = setInterval(this.pathgenerator.bind(this), 25);
 
@@ -194,82 +180,25 @@ class Bar extends Component {
       }
     } else {
       var potentialMove = this.calculatesCoordinatesPotentialMoves(exwy, 1);
-      //these flags below mark whether the potential move exists in move array
-      var one = null;
-      var two = null;
-      var three = null;
-      var four = null;
-      //these flags below mark whether the potential move is on the board or off the board
-      var oneBoard = null;
-      var twoBoard = null;
-      var threeBoard = null;
-      var fourBoard = null;
 
-      var u = 0;
-      var i = 0;
-      var p = 0;
-      var k = 0;
-      for (u = 0; u < exwy.length; u++) {
-        if (
-          exwy[u][0] === potentialMove[0][0] &&
-          exwy[u][1] === potentialMove[0][1]
-        ) {
-          one = true;
-          break;
-        } else one = false;
-      }
-      for (i = 0; i < exwy.length; i++) {
-        if (
-          exwy[i][0] === potentialMove[1][0] &&
-          exwy[i][1] === potentialMove[1][1]
-        ) {
-          two = true;
-          break;
-        } else two = false;
-      }
-      for (p = 0; p < exwy.length; p++) {
-        if (
-          exwy[p][0] === potentialMove[2][0] &&
-          exwy[p][1] === potentialMove[2][1]
-        ) {
-          three = true;
-          break;
-        } else three = false;
-      }
-      for (k = 0; k < exwy.length; k++) {
-        if (
-          exwy[k][0] === potentialMove[3][0] &&
-          exwy[k][1] === potentialMove[3][1]
-        ) {
-          four = true;
-          break;
-        } else four = false;
-      }
+      var exist = this.calculatesIfCoordinatesAlreadyVisited(
+        exwy,
+        potentialMove
+      );
       ////////////////////// this determines if its on the board.
-      var boards = [oneBoard, twoBoard, threeBoard, fourBoard];
-      for (var z = 0; z < 4; z++) {
-        if (
-          0 <= potentialMove[z][0] &&
-          potentialMove[z][0] <= this.props.width &&
-          0 <= potentialMove[z][1] &&
-          potentialMove[z][1] <= this.props.height - 1
-        ) {
-          boards[z] = false;
-        } else boards[z] = true;
-      }
-
+      var boards = this.calculateIfMoveOnBoard(potentialMove);
       /////////////////////////////////////////
       var actualPotentialMoves = [];
-      if (one === false && boards[0] === false) {
+      if (exist[0] === false && boards[0] === false) {
         actualPotentialMoves.push(potentialMove[0]);
       }
-      if (two === false && boards[1] === false) {
+      if (exist[1] === false && boards[1] === false) {
         actualPotentialMoves.push(potentialMove[1]);
       }
-      if (three === false && boards[2] === false) {
+      if (exist[2] === false && boards[2] === false) {
         actualPotentialMoves.push(potentialMove[2]);
       }
-      if (four === false && boards[3] === false) {
+      if (exist[3] === false && boards[3] === false) {
         actualPotentialMoves.push(potentialMove[3]);
       }
       //array of valid potential moves (unvisited and on the board) is logged below
@@ -330,106 +259,28 @@ class Bar extends Component {
     this.forceUpdate();
   }
 
-  calculatesCoordinatesPotentialMoves(exwy, zcounter) {
-    return [
-      [exwy[exwy.length - zcounter][0] + 2, exwy[exwy.length - zcounter][1]],
-      [exwy[exwy.length - zcounter][0] - 2, exwy[exwy.length - zcounter][1]],
-      [exwy[exwy.length - zcounter][0], exwy[exwy.length - zcounter][1] + 2],
-      [exwy[exwy.length - zcounter][0], exwy[exwy.length - zcounter][1] - 2],
-    ];
-  }
-
   morePathFinders() {
     var { pathO, stepback } = this.state;
-
     var exwy = pathO;
-
     var zcounter = stepback;
-
-    //calculates coordinates of potential moves
     var potentialMove = this.calculatesCoordinatesPotentialMoves(
       exwy,
       zcounter
     );
-
-    //these flags below mark whether the potential move exists in move array
-    var one = null;
-    var two = null;
-    var three = null;
-    var four = null;
-    //these below mark whether the potential move is on the board
-    var oneBoard = null;
-    var twoBoard = null;
-    var threeBoard = null;
-    var fourBoard = null;
-    var u = 0;
-    var i = 0;
-    var p = 0;
-    var k = 0;
-
-    for (u = 0; u < exwy.length; u++) {
-      if (
-        exwy[u][0] === potentialMove[0][0] &&
-        exwy[u][1] === potentialMove[0][1]
-      ) {
-        one = true;
-        break;
-      } else one = false;
-    }
-    for (i = 0; i < exwy.length; i++) {
-      if (
-        exwy[i][0] === potentialMove[1][0] &&
-        exwy[i][1] === potentialMove[1][1]
-      ) {
-        two = true;
-        break;
-      } else two = false;
-    }
-    for (p = 0; p < exwy.length; p++) {
-      if (
-        exwy[p][0] === potentialMove[2][0] &&
-        exwy[p][1] === potentialMove[2][1]
-      ) {
-        three = true;
-        break;
-      } else three = false;
-    }
-    for (k = 0; k < exwy.length; k++) {
-      if (
-        exwy[k][0] === potentialMove[3][0] &&
-        exwy[k][1] === potentialMove[3][1]
-      ) {
-        four = true;
-        break;
-      } else four = false;
-    }
-
-    ////////////////////// this determines if its on the board.
-    var boards = [oneBoard, twoBoard, threeBoard, fourBoard];
-    for (var z = 0; z < 4; z++) {
-      if (
-        0 <= potentialMove[z][0] &&
-        potentialMove[z][0] <= this.props.width &&
-        0 <= potentialMove[z][1] &&
-        potentialMove[z][1] <= this.props.height - 1
-      ) {
-        boards[z] = false;
-      } else boards[z] = true;
-    }
-
-    /////////////////////////////////////////
+    var exist = this.calculatesIfCoordinatesAlreadyVisited(exwy, potentialMove);
+    var boards = this.calculateIfMoveOnBoard(potentialMove);
 
     var actualPotentialMoves = [];
-    if (one === false && boards[0] === false) {
+    if (exist[0] === false && boards[0] === false) {
       actualPotentialMoves.push(potentialMove[0]);
     }
-    if (two === false && boards[1] === false) {
+    if (exist[1] === false && boards[1] === false) {
       actualPotentialMoves.push(potentialMove[1]);
     }
-    if (three === false && boards[2] === false) {
+    if (exist[2] === false && boards[2] === false) {
       actualPotentialMoves.push(potentialMove[2]);
     }
-    if (four === false && boards[3] === false) {
+    if (exist[3] === false && boards[3] === false) {
       actualPotentialMoves.push(potentialMove[3]);
     }
     //array of valid potential moves (unvisited and on the board) is logged below
@@ -501,7 +352,80 @@ class Bar extends Component {
     this.forceUpdate();
   }
 
-  //  const funtimer = <div>{MyStopwatch()}</div>;
+  calculatesCoordinatesPotentialMoves(exwy, zcounter) {
+    return [
+      [exwy[exwy.length - zcounter][0] + 2, exwy[exwy.length - zcounter][1]],
+      [exwy[exwy.length - zcounter][0] - 2, exwy[exwy.length - zcounter][1]],
+      [exwy[exwy.length - zcounter][0], exwy[exwy.length - zcounter][1] + 2],
+      [exwy[exwy.length - zcounter][0], exwy[exwy.length - zcounter][1] - 2],
+    ];
+  }
+
+  calculateIfMoveOnBoard(potentialMove) {
+    var oneBoard = null;
+    var twoBoard = null;
+    var threeBoard = null;
+    var fourBoard = null;
+    var boards = [oneBoard, twoBoard, threeBoard, fourBoard];
+    for (var z = 0; z < 4; z++) {
+      if (
+        0 <= potentialMove[z][0] &&
+        potentialMove[z][0] <= this.props.width &&
+        0 <= potentialMove[z][1] &&
+        potentialMove[z][1] <= this.props.height - 1
+      ) {
+        boards[z] = false;
+      } else boards[z] = true;
+    }
+    return boards;
+  }
+
+  calculatesIfCoordinatesAlreadyVisited(exwy, potentialMove) {
+    var exist = [null, null, null, null];
+
+    var u = 0;
+    var i = 0;
+    var p = 0;
+    var k = 0;
+
+    for (u = 0; u < exwy.length; u++) {
+      if (
+        exwy[u][0] === potentialMove[0][0] &&
+        exwy[u][1] === potentialMove[0][1]
+      ) {
+        exist[0] = true;
+        break;
+      } else exist[0] = false;
+    }
+    for (i = 0; i < exwy.length; i++) {
+      if (
+        exwy[i][0] === potentialMove[1][0] &&
+        exwy[i][1] === potentialMove[1][1]
+      ) {
+        exist[1] = true;
+        break;
+      } else exist[1] = false;
+    }
+    for (p = 0; p < exwy.length; p++) {
+      if (
+        exwy[p][0] === potentialMove[2][0] &&
+        exwy[p][1] === potentialMove[2][1]
+      ) {
+        exist[2] = true;
+        break;
+      } else exist[2] = false;
+    }
+    for (k = 0; k < exwy.length; k++) {
+      if (
+        exwy[k][0] === potentialMove[3][0] &&
+        exwy[k][1] === potentialMove[3][1]
+      ) {
+        exist[3] = true;
+        break;
+      } else exist[3] = false;
+    }
+    return exist;
+  }
 
   render() {
     const elementS = [];
@@ -524,15 +448,7 @@ class Bar extends Component {
         elementS.pop();
       }
     }
-    /*
-    const againButton = (
-      <div>
-        <button id="largebutton" onClick={() => this.mazeAgain()}>
-          New Maze
-        </button>
-      </div>
-    );
-*/
+
     const entireThingz = (
       <div className="entireThing">
         <span id="mazeSpot">
