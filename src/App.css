@@ -285,13 +285,11 @@ a:active {
   .bSquare--med {
     height: 8px;
     width: 8px;
-    border: none;
   }
 
   .bSquare--lrg {
     height: 16px;
     width: 16px;
-    border: none;
   }
 
   .bSquare--black {

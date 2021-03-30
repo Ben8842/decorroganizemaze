@@ -35,15 +35,7 @@ class Diamond extends Component {
 
     var i = null;
     for (i = 0; i < pathO.length; i++) {
-      if (stepback === pathO.length && x === pathO[0][0] && y === pathO[0][1]) {
-        return (
-          <button
-            className={"bSquare bSquare--grey bSquare--" + sizeHold}
-            codex={x}
-            codey={y}
-          ></button>
-        );
-      } else if (
+      if (
         x === pathO[pathO.length - 1][0] &&
         y === pathO[pathO.length - 1][1] &&
         stepback < pathO.length

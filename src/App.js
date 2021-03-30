@@ -72,11 +72,11 @@ class App extends Component {
     );
     const diamondContainer = (
       <div id="nameT">
-        <Diamond height="8" pixelSize="lrg" />
+        <Diamond height="8" />
         <Diamond height="8" pixelSize="sml" />
-        <Diamond height="8" pixelSize="med" />
-
-        <Diamond height="22" pixelSize="med" />
+        <Diamond height="8" pixelSize="sml" />
+        <Diamond height="8" pixelSize="sml" />
+        <Diamond height="8" pixelSize="sml" />
       </div>
     );
     return (
